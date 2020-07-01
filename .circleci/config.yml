@@ -3,9 +3,8 @@ orbs:
   twilio: circleci/twilio@0.0.1
 jobs:
   build-and-send-SMS:
-    executor:
-      docker:
-        - image: circleci/php:7.4-node-browsers
+    docker:
+      - image: circleci/php:7.4-node-browsers
     steps:
       - checkout
 
