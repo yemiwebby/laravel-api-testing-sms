@@ -46,9 +46,8 @@ jobs:
       - run:
           name: "Run Tests"
           command: composer test
-
-      - twilio/sendsms:
-          body: Send SMS to Twilio phone number for successful build
-      - twilio/alert:
-          body: Send SMS to Twilio phone number for failed build
+          - twilio/sendsms:
+              body: Send SMS to Twilio phone number for successful build
+          - twilio/alert:
+              body: Send SMS to Twilio phone number for failed build
 
