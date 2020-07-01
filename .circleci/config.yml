@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  twilio: circleci/twilio@0.0.1
 jobs:
   build:
     docker:
@@ -44,3 +46,9 @@ jobs:
       - run:
           name: "Run Tests"
           command: composer test
+
+      - twilio/sendsms:
+          body: Send SMS to Twilio phone number for successful build
+      - twilio/alert:
+          body: Send SMS to Twilio phone number for failed build
+
